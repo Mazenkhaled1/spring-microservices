@@ -1,10 +1,13 @@
 package com.eazybytes.accounts.service.impl;
 
 import com.eazybytes.accounts.constants.AccountsConstants;
+import com.eazybytes.accounts.dto.AccountsDto;
 import com.eazybytes.accounts.dto.CustomerDto;
 import com.eazybytes.accounts.entity.Accounts;
 import com.eazybytes.accounts.entity.Customer;
 import com.eazybytes.accounts.exception.CustomerAlreadyExistsException;
+import com.eazybytes.accounts.exception.ResourceNotFoundException;
+import com.eazybytes.accounts.mapper.AccountsMapper;
 import com.eazybytes.accounts.mapper.CustomerMapper;
 import com.eazybytes.accounts.repository.AccountsRepository;
 import com.eazybytes.accounts.repository.CustomerRepository;
@@ -37,6 +40,9 @@ public class AccountsServiceImpl implements IAccountsService {
         accountsRepository.save(createNewAccount(newCustomer)) ;
     }
 
+
+
+
     private Accounts createNewAccount(Customer customer) {
         var newAccount = new Accounts();
         newAccount.setCustomerId(customer.getCustomerId());
@@ -49,5 +55,18 @@ public class AccountsServiceImpl implements IAccountsService {
         return newAccount;
     }
 
+
+    @Override
+    public CustomerDto fetchAccount(String mobileNumber) {
+     var customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
+              () -> new ResourceNotFoundException("Customer" , "mobileNumber", mobileNumber)
+      ) ;
+     var accounts = accountsRepository.findByCustomerId(customer.getCustomerId()).orElseThrow(
+             () -> new ResourceNotFoundException("Account" , "customerId", customer.getCustomerId().toString())
+     ) ;
+     var customerDto = CustomerMapper.mapToCustomerDto(customer,  new CustomerDto()) ;
+     customerDto.setAccountsDto(AccountsMapper.mapToAccountsDto(accounts , new AccountsDto()));
+     return customerDto ;
+    }
 
 }
