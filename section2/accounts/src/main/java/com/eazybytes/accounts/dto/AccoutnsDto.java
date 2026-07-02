@@ -8,10 +8,6 @@ import lombok.Data;
 public class AccoutnsDto {
 
     private Long accountNumber;
-
-
     private String accountType;
-
-
     private String branchAddress;
 }
