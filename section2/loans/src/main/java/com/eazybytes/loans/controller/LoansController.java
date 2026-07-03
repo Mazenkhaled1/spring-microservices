@@ -77,13 +77,13 @@ public class LoansController {
 //            )
 //    }
 //    )
-//    @GetMapping("/fetch")
-//    public ResponseEntity<LoansDto> fetchLoanDetails(@RequestParam
-//                                                     @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile number must be 10 digits")
-//                                                     String mobileNumber) {
-//        LoansDto loansDto = iLoansService.fetchLoan(mobileNumber);
-//        return ResponseEntity.status(HttpStatus.OK).body(loansDto);
-//    }
+    @GetMapping("/fetch")
+    public ResponseEntity<LoansDto> fetchLoanDetails(@RequestParam
+                                                     @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile number must be 10 digits")
+                                                     String mobileNumber) {
+        LoansDto loansDto = iLoansService.fetchLoan(mobileNumber);
+        return ResponseEntity.status(HttpStatus.OK).body(loansDto);
+    }
 
 //    @Operation(
 //            summary = "Update Loan Details REST API",
