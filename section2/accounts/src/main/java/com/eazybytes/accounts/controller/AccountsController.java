@@ -5,22 +5,24 @@ import com.eazybytes.accounts.dto.CustomerDto;
 import com.eazybytes.accounts.dto.ResponseDto;
 import com.eazybytes.accounts.service.IAccountsService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/api" , produces = {MediaType.APPLICATION_JSON_VALUE})
 @AllArgsConstructor
-
+@Validated
 public class AccountsController {
 
     private final IAccountsService iAccountsService;
 
     @PostMapping("/create")
-    public ResponseEntity<ResponseDto> createAccount(@RequestBody CustomerDto request)
+    public ResponseEntity<ResponseDto> createAccount( @Valid @RequestBody CustomerDto request)
     {
         iAccountsService.createAccount(request);
         return ResponseEntity
@@ -29,7 +31,10 @@ public class AccountsController {
     }
 
     @GetMapping("/fetch")
-    public ResponseEntity<CustomerDto> fetchAccount(@RequestParam String mobileNumber)
+    public ResponseEntity<CustomerDto> fetchAccount(@RequestParam
+                                        @Pattern(regexp = "(^$|01[0125][0-9]{8})", message = "Mobile number must be a valid Egyptian number")
+                                        String mobileNumber)
+
     {
         var acountDto =  iAccountsService.fetchAccount(mobileNumber);
         return ResponseEntity.status(HttpStatus.OK).body(acountDto);
@@ -51,7 +56,9 @@ public class AccountsController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<ResponseDto> deleteAccountDetails(@RequestParam String mobileNumber) {
+    public ResponseEntity<ResponseDto> deleteAccountDetails(@RequestParam
+                                        @Pattern(regexp = "(^$|01[0125][0-9]{8})", message = "Mobile number must be a valid Egyptian number")
+                                        String mobileNumber) {
         boolean isDeleted = iAccountsService.deleteAccount(mobileNumber);
         if(isDeleted) {
             return ResponseEntity
