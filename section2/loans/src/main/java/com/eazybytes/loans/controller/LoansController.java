@@ -159,4 +159,10 @@ public class LoansController {
         }
     }
 
+
+    @GetMapping()
+    public String sayHello() {
+        return "Hello World";
+    }
+
 }
