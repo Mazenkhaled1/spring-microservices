@@ -12,10 +12,6 @@ public interface ILoansService {
      */
     void createLoan(String mobileNumber);
 
-    LoansDto fetchLoan(String mobileNumber);
-
-}
-
     /**
      *
      * @param mobileNumber - Input mobile Number
@@ -23,12 +19,21 @@ public interface ILoansService {
      */
 
 
+    LoansDto fetchLoan(String mobileNumber);
+
     /**
      *
      * @param loansDto - LoansDto Object
      * @return boolean indicating if the update of card details is successful or not
      */
-//    boolean updateLoan(LoansDto loansDto);
+    boolean updateLoan(LoansDto loansDto);
+
+
+
+}
+
+
+
 
     /**
      *
