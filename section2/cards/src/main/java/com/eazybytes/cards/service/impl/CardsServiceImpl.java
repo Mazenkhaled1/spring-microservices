@@ -79,14 +79,14 @@ public class CardsServiceImpl implements ICardsService {
      * @param mobileNumber - Input MobileNumber
      * @return boolean indicating if the delete of card details is successful or not
      */
-//    @Override
-//    public boolean deleteCard(String mobileNumber) {
-//        Cards cards = cardsRepository.findByMobileNumber(mobileNumber).orElseThrow(
-//                () -> new ResourceNotFoundException("Card", "mobileNumber", mobileNumber)
-//        );
-//        cardsRepository.deleteById(cards.getCardId());
-//        return true;
-//    }
+    @Override
+    public boolean deleteCard(String mobileNumber) {
+        Cards cards = cardsRepository.findByMobileNumber(mobileNumber).orElseThrow(
+                () -> new ResourceNotFoundException("Card", "mobileNumber", mobileNumber)
+        );
+        cardsRepository.deleteById(cards.getCardId());
+        return true;
+    }
 
 
 }
