@@ -53,13 +53,13 @@ public class CardsServiceImpl implements ICardsService {
      * @param mobileNumber - Input mobile Number
      * @return Card Details based on a given mobileNumber
      */
-//    @Override
-//    public CardsDto fetchCard(String mobileNumber) {
-//        Cards cards = cardsRepository.findByMobileNumber(mobileNumber).orElseThrow(
-//                () -> new ResourceNotFoundException("Card", "mobileNumber", mobileNumber)
-//        );
-//        return CardsMapper.mapToCardsDto(cards, new CardsDto());
-//    }
+    @Override
+    public CardsDto fetchCard(String mobileNumber) {
+        Cards cards = cardsRepository.findByMobileNumber(mobileNumber).orElseThrow(
+                () -> new ResourceNotFoundException("Card", "mobileNumber", mobileNumber)
+        );
+        return CardsMapper.mapToCardsDto(cards, new CardsDto());
+    }
 
     /**
      *
