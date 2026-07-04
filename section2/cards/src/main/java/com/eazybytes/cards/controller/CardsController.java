@@ -108,20 +108,20 @@ public class CardsController {
 //                    )
 //            )
 //    })
-//    @PutMapping("/update")
-//    public ResponseEntity<ResponseDto> updateCardDetails(@Valid @RequestBody CardsDto cardsDto) {
-//        boolean isUpdated = iCardsService.updateCard(cardsDto);
-//        if(isUpdated) {
-//            return ResponseEntity
-//                    .status(HttpStatus.OK)
-//                    .body(new ResponseDto(CardsConstants.STATUS_200, CardsConstants.MESSAGE_200));
-//        }else{
-//            return ResponseEntity
-//                    .status(HttpStatus.EXPECTATION_FAILED)
-//                    .body(new ResponseDto(CardsConstants.STATUS_417, CardsConstants.MESSAGE_417_UPDATE));
-//        }
-//    }
-//
+    @PutMapping("/update")
+    public ResponseEntity<ResponseDto> updateCardDetails(@Valid @RequestBody CardsDto cardsDto) {
+        boolean isUpdated = iCardsService.updateCard(cardsDto);
+        if(isUpdated) {
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(new ResponseDto(CardsConstants.STATUS_200, CardsConstants.MESSAGE_200));
+        }else{
+            return ResponseEntity
+                    .status(HttpStatus.EXPECTATION_FAILED)
+                    .body(new ResponseDto(CardsConstants.STATUS_417, CardsConstants.MESSAGE_417_UPDATE));
+        }
+    }
+
 //    @Operation(
 //            summary = "Delete Card Details REST API",
 //            description = "REST API to delete Card details based on a mobile number"
