@@ -8,7 +8,7 @@ public interface ICardsService {
      *
      * @param mobileNumber - Mobile Number of the Customer
      */
-//    void createCard(String mobileNumber);
+    void createCard(String mobileNumber);
 
     /**
      *
