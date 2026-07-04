@@ -34,24 +34,24 @@ public class CardsController {
 
     private ICardsService iCardsService;
 
-//    @Operation(
-//            summary = "Create Card REST API",
-//            description = "REST API to create new Card inside EazyBank"
-//    )
-//    @ApiResponses({
-//            @ApiResponse(
-//                    responseCode = "201",
-//                    description = "HTTP Status CREATED"
-//            ),
-//            @ApiResponse(
-//                    responseCode = "500",
-//                    description = "HTTP Status Internal Server Error",
-//                    content = @Content(
-//                            schema = @Schema(implementation = ErrorResponseDto.class)
-//                    )
-//            )
-//    }
-//    )
+    @Operation(
+            summary = "Create Card REST API",
+            description = "REST API to create new Card inside EazyBank"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "201",
+                    description = "HTTP Status CREATED"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    }
+    )
     @PostMapping("/create")
     public ResponseEntity<ResponseDto> createCard(@Valid @RequestParam
                                                   @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile number must be 10 digits")
@@ -61,24 +61,24 @@ public class CardsController {
                 .status(HttpStatus.CREATED)
                 .body(new ResponseDto(CardsConstants.STATUS_201, CardsConstants.MESSAGE_201));
     }
-//
-//    @Operation(
-//            summary = "Fetch Card Details REST API",
-//            description = "REST API to fetch card details based on a mobile number"
-//    )
-//    @ApiResponses({
-//            @ApiResponse(
-//                    responseCode = "200",
-//                    description = "HTTP Status OK"
-//            ),
-//            @ApiResponse(
-//                    responseCode = "500",
-//                    description = "HTTP Status Internal Server Error",
-//                    content = @Content(
-//                            schema = @Schema(implementation = ErrorResponseDto.class)
-//                    )
-//            )
-//    })
+
+    @Operation(
+            summary = "Fetch Card Details REST API",
+            description = "REST API to fetch card details based on a mobile number"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    })
     @GetMapping("/fetch")
     public ResponseEntity<CardsDto> fetchCardDetails(@RequestParam
                                                      @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile number must be 10 digits")
@@ -86,28 +86,28 @@ public class CardsController {
         CardsDto cardsDto = iCardsService.fetchCard(mobileNumber);
         return ResponseEntity.status(HttpStatus.OK).body(cardsDto);
     }
-//
-//    @Operation(
-//            summary = "Update Card Details REST API",
-//            description = "REST API to update card details based on a card number"
-//    )
-//    @ApiResponses({
-//            @ApiResponse(
-//                    responseCode = "200",
-//                    description = "HTTP Status OK"
-//            ),
-//            @ApiResponse(
-//                    responseCode = "417",
-//                    description = "Expectation Failed"
-//            ),
-//            @ApiResponse(
-//                    responseCode = "500",
-//                    description = "HTTP Status Internal Server Error",
-//                    content = @Content(
-//                            schema = @Schema(implementation = ErrorResponseDto.class)
-//                    )
-//            )
-//    })
+
+    @Operation(
+            summary = "Update Card Details REST API",
+            description = "REST API to update card details based on a card number"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "417",
+                    description = "Expectation Failed"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    })
     @PutMapping("/update")
     public ResponseEntity<ResponseDto> updateCardDetails(@Valid @RequestBody CardsDto cardsDto) {
         boolean isUpdated = iCardsService.updateCard(cardsDto);
@@ -122,27 +122,27 @@ public class CardsController {
         }
     }
 
-//    @Operation(
-//            summary = "Delete Card Details REST API",
-//            description = "REST API to delete Card details based on a mobile number"
-//    )
-//    @ApiResponses({
-//            @ApiResponse(
-//                    responseCode = "200",
-//                    description = "HTTP Status OK"
-//            ),
-//            @ApiResponse(
-//                    responseCode = "417",
-//                    description = "Expectation Failed"
-//            ),
-//            @ApiResponse(
-//                    responseCode = "500",
-//                    description = "HTTP Status Internal Server Error",
-//                    content = @Content(
-//                            schema = @Schema(implementation = ErrorResponseDto.class)
-//                    )
-//            )
-//    })
+    @Operation(
+            summary = "Delete Card Details REST API",
+            description = "REST API to delete Card details based on a mobile number"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "417",
+                    description = "Expectation Failed"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    })
     @DeleteMapping("/delete")
     public ResponseEntity<ResponseDto> deleteCardDetails(@RequestParam
                                                          @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile number must be 10 digits")
