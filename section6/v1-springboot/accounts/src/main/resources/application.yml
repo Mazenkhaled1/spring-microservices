@@ -14,15 +14,16 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  profiles:
+    active: "qa"
 
 build:
-  version: "1.0"
+  version: "3.0"
 
 accounts:
-  message: "Welcome to EazyBank accounts related local APIs "
+  message: "Welcome to EazyBank local APIs"
   contactDetails:
-    name: "Mazen Khaled - Developer"
+    name: "Mazen Khaled"
     email: "mazenkhaled.jr@gmail.com"
   onCallSupport:
-    - (555) 555-1234
-    - (555) 523-1345
+    - (20) 1008573031
