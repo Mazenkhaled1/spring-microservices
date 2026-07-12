@@ -136,7 +136,7 @@
 				<version>3.5.1</version>
 				<configuration>
 					<to>
-						<image>mazenkhaled1/cards:s6</image>
+						<image>mazenkhaled1/cards:s7</image>
 					</to>
 				</configuration>
 			</plugin>

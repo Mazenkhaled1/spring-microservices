@@ -124,7 +124,7 @@
 				<version>3.5.1</version>
 				<configuration>
 					<to>
-						<image>mazenkhaled1/loans:s6</image>
+						<image>mazenkhaled1/loans:s7</image>
 					</to>
 				</configuration>
 			</plugin>
