@@ -16,7 +16,7 @@ services:
       service: network-deploy-service
 
   configserver:
-    image: "mazenkhaled1/configserver:s6"
+    image: "mazenkhaled1/configserver:s8"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -34,7 +34,7 @@ services:
       service: microservice-base-config
 
   accounts:
-    image: "mazenkhaled1/accounts:s6"
+    image: "mazenkhaled1/accounts:s8"
     container_name: accounts-ms
     ports:
       - "8080:8080"
@@ -48,7 +48,7 @@ services:
       service: microservice-configserver-config
 
   loans:
-    image: "mazenkhaled1/loans:s6"
+    image: "mazenkhaled1/loans:s8"
     container_name: loans-ms
     ports:
       - "8090:8090"
@@ -62,7 +62,7 @@ services:
       service: microservice-configserver-config
 
   cards:
-    image: "mazenkhaled1/cards:s6"
+    image: "mazenkhaled1/cards:s8"
     container_name: cards-ms
     ports:
       - "9000:9000"
