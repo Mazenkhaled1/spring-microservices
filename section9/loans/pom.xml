@@ -138,7 +138,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<name>mazenkhaled1/${project.artifactId}:s8</name>
+						<name>mazenkhaled1/${project.artifactId}:s9</name>
 					</image>
 					<excludes>
 						<exclude>
