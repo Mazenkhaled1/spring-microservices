@@ -29,7 +29,7 @@ info:
     name: "gatewayserver"
     description: "Eazy Bank Gateway Server Application"
     version: "1.0.0"
-#
+
 #logging:
 #  level:
 #    com:
