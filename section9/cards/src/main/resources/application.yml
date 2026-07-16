@@ -47,3 +47,9 @@ info:
     name: "cards"
     description: "Eazy Bank Cards Application"
     version: "2.0.0"
+
+logging:
+  level:
+    com:
+      eazybytes:
+        cards: DEBUG

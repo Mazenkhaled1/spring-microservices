@@ -30,8 +30,8 @@ info:
     description: "Eazy Bank Gateway Server Application"
     version: "1.0.0"
 
-#logging:
-#  level:
-#    com:
-#      eazybytes:
-#        gatewayserver: DEBUG
+logging:
+  level:
+    com:
+      eazybytes:
+        gatewayserver: DEBUG
