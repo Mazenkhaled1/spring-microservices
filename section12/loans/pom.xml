@@ -128,7 +128,7 @@
 				<version>3.5.1</version>
 				<configuration>
 					<to>
-						<image>mazenkhaled1/${project.artifactId}:s10</image>
+						<image>mazenkhaled1/${project.artifactId}:s12</image>
 					</to>
 				</configuration>
 			</plugin>
@@ -138,7 +138,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<name>mazenkhaled1/${project.artifactId}:s10</name>
+						<name>mazenkhaled1/${project.artifactId}:s12</name>
 					</image>
 					<excludes>
 						<exclude>
