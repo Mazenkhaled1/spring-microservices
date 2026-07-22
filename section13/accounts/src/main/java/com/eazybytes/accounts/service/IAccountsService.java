@@ -18,4 +18,6 @@ public interface IAccountsService {
 
      boolean deleteAccount(String accountNumber);
 
+     boolean updateCommunicationStatus(Long accountNumber);
+
 }

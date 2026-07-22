@@ -1,5 +1,6 @@
 server:
   port: 8080
+
 spring:
   application:
     name: "accounts"
@@ -24,6 +25,22 @@ spring:
     openfeign:
       circuitbreaker:
         enabled: true
+    function:
+      definition: updateCommunication
+    stream:
+      bindings:
+        updateCommunication-in-0:
+          destination: communication-sent
+          group: ${spring.application.name}
+        sendCommunication-out-0:
+          destination: send-communication
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    connection-timeout: 10s
 
 management:
   endpoints:
@@ -54,7 +71,6 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8070/eureka/
 
-
 info:
   app:
     name: "accounts"
@@ -75,7 +91,6 @@ resilience4j.circuitbreaker:
       failureRateThreshold: 50
       waitDurationInOpenState: 10000
 
-
 resilience4j.retry:
   configs:
     default:
@@ -87,7 +102,6 @@ resilience4j.retry:
         - java.lang.NullPointerException
       retryExceptions:
         - java.util.concurrent.TimeoutException
-
 
 resilience4j.ratelimiter:
   configs:
