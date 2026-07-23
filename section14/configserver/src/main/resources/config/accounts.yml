@@ -1,0 +1,10 @@
+build:
+  version: "3.0"
+
+accounts:
+  message: "Welcome to EazyBank local APIs"
+  contactDetails:
+    name: "Mazen Khaled"
+    email: "mazenkhaled.jr@gmail.com"
+  onCallSupport:
+    - (20) 1008573031
