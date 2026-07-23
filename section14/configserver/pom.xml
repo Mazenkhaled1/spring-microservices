@@ -70,7 +70,7 @@
 				<version>3.5.1</version>
 				<configuration>
 					<to>
-						<image>mazenkhaled1/${project.artifactId}:s13</image>
+						<image>mazenkhaled1/${project.artifactId}:s14</image>
 					</to>
 				</configuration>
 			</plugin>
