@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: configserver
-        image: mazenkhaled1/configserver:s14
+        image: mazenkhaled1/configserver:s12
         ports:
         - containerPort: 8071
 ---
