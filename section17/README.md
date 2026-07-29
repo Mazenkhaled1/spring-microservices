@@ -1,4 +1,4 @@
-## Topics covered in the course
+## Topics covered
 * Section 1 - Introduction to Microservices Architecture
 * Section 2- Building microservices using Spring Boot
 * Section 3 - How do we right size our microservices & identify boundaries
