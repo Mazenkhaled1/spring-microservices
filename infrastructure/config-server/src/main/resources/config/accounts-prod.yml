@@ -1,0 +1,10 @@
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to EazyBank PROD APIs"
+  contactDetails:
+    name: "Mostafa Khaled"
+    email: "mostafakhaled.jr@gmail.com"
+  onCallSupport:
+    - (20) 1150366878
